@@ -1,0 +1,210 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0%;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+
+@keyframes slogan {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0%;
+    }
+    
+    100% {
+        transform: translateX(0px);
+        opacity: 100%;
+    }
+}
+
+.herocontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding-block: 3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    animation: 1s cubic-bezier(.36,.35,.16,1.01) 2.1s 1 heightScroll backwards;
+    height: calc(24em - clamp(-3em, calc(90vw - 22em),4em) + clamp(0em, calc(34vw - 8em), 16em) );
+}
+
+@keyframes heightScroll{
+    from {
+        height: 100vh;
+    }
+    
+    to {
+        height: calc(24em - clamp(-3em, calc(90vw - 22em),4em) + clamp(0em, calc(34vw - 8em), 16em) );
+    }
+}
+
+aside {
+    grid-area: as;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1em;
+}
+
+aside a {
+    background-color: rgb(32, 35, 49);
+    border-radius: 0.5em;
+    padding: 1em;
+    text-decoration: none;
+    text-align: center;
+    width: max-content;
+}
+
+code {
+    font-weight: bolder;
+}
+
+#hero{
+    font-size: clamp(3.5em,12vw,9em);
+    font-family: Montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: -0.05em;
+    font-weight:bold;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0.03em 0.03em 0px rgb(10, 78, 78), 0.06em 0.06em 0px rgb(4, 105, 114);
+    animation: 1s cubic-bezier(.25,.64,.65,1.11) 0s 1 fadeIn;
+}
+
+
+
+#slogan {
+    margin: 0;
+    font-size: clamp(1em,3vw,2.3em);
+    text-shadow: 0.06em 0.06em 1px black;
+    font-family: Mochiy, "Arial";
+    opacity: 0%;
+    animation: 0.4s cubic-bezier(.14,.91,.32,1.28) 0.8s 1 slogan both;
+    text-align: center;
+}
+#info {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 2em;
+    text-align: center;
+    background-color: var(--transparent-bg);
+    padding: 1em;
+    padding-inline: 3em;
+    border-radius: 2em;
+    background-blend-mode: darken;
+    animation: 0.4s ease-out 1.2s 1 fadeIn both;
+}
+
+header {
+    animation: 0.4s ease-out 2.4s 1 headerIn both;
+}
+
+@keyframes headerIn {
+    from {
+        top: -4em;
+    }
+    to {
+        top: 0px;
+    }
+}
+
+
+
+#info p {
+    margin-block: 0.2em;
+    font-size: clamp(1.2em,4vw,220%);
+}
+
+.imgsection > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    grid-area: 1/1/6/6;
+    z-index: -2;
+}
+
+
+.whitespace:nth-child(2) {
+    height: 2em;
+}
+.whitespace {
+    height: 1.5em;
+    background-color: rgb(15, 15, 27);
+    background-blend-mode: darken;
+}
+
+.imgsection {
+    display: grid;
+    grid-template-columns: var(--side-padding) 2fr 1fr 2fr var(--side-padding);
+    grid-template-rows: var(--side-padding) 2fr 1fr 2fr var(--side-padding);
+    position: relative;
+    height: 30em;
+    transition: ease-in-out height 0.8s;
+}
+
+.sectiontext {
+    
+    text-align: center;
+    grid-area: 3/-3/4/-2;
+    
+}
+
+.sectiontext > div {
+    width: min(calc(30vw + 5em),100%);
+    background-color: var(--transparent-bg);
+    padding: 1em;
+    border-radius: 2em;
+    margin: auto;
+    box-sizing: border-box;
+}
+.left {
+    grid-area: 3/2/4/3;
+}
+
+.yellow {
+    color:gold
+}
+
+.aqua {
+    color:rgb(198, 255, 255)
+}
+
+@media only screen and (max-width: 640px) {
+    
+    .sectiontext {
+        grid-area: 3/2/4/-2;
+    }
+    .sectiontext > div {
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+@media only screen and (max-width: 900px) {
+    :root {
+        --side-padding: 1.5em;
+    }
+    .imgsection {
+        grid-template-columns: var(--side-padding) 2fr 2fr var(--side-padding);
+        
+    }
+}
+/*
+@media only screen and (min-width: 900px) {
+   
+    .imgsection:hover{
+        height: clamp(30em, 100vh, 40em);
+    }
+}*/

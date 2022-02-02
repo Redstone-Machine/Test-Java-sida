@@ -1,0 +1,86 @@
+:root {
+    --transparent-bg: rgba(16, 21, 36, 0.822);
+    --side-padding: 4em;
+}
+
+html, body {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+header > a {
+    padding: 0.5em;
+    font-size: clamp(1em,3vw,1.5em);
+    border-inline: 2px solid rgb(8, 21, 37);
+    border-collapse: collapse;
+    background-color: rgb(28, 30, 59);
+    flex-grow: 1;
+    text-align: center;
+}
+header > a:hover {
+    background-color: rgb(54, 57, 104);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    position: fixed;
+    z-index: 10;
+}
+
+
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(12, 17, 22);
+    height: 100%;
+    color: white;
+    font-size: larger;
+    
+}
+
+.whitespace {
+    background-image: url("/img/pattern.png");
+    height: 2em;
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+    padding-block: 4em;
+    padding-left: 2em;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+@font-face {
+    font-family: Mochiy;
+    src: url("fonts/MochiyPopPOne-Regular.ttf");
+}
+@font-face {
+    font-family: Montserrat;
+    src: url("fonts/Montserrat-ExtraBold.ttf");
+}
+
+a {
+    color: rgb(253, 153, 200);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: 1px underline;
+}
+
+@media only screen and (max-width: 640px) {
+    :root {
+        --side-padding: 1em;
+    }
+}
